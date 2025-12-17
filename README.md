@@ -3,7 +3,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-> **Master's Dissertation Project** - Evaluating Inverse Reinforcement Learning algorithms for human intention recognition in cooperative multi-agent systems.
+> **Master's Dissertation Project** - Evaluating Inverse Reinforcement Learning Algorithms for Human Intention Recognition in Cooperative Multi-Agent Systems.
 
 ## 📋 Overview
 
@@ -62,8 +62,8 @@ The system consists of three main components:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms.git
-cd Investigating-IRL-based-intention-recognition-algorithms
+git clone https://github.com/JoshWheeler08/cooperative-irl-assistive-agents.git
+cd cooperative-irl-assistive-agents
 ```
 
 2. **Create a virtual environment**
@@ -89,8 +89,6 @@ cp .env.example .env
 # Get your key from: https://wandb.ai/authorize
 ```
 
-See [SECURITY.md](SECURITY.md) for secure credential management.
-
 ### Running Experiments
 
 #### Baseline Experiments
@@ -98,10 +96,16 @@ See [SECURITY.md](SECURITY.md) for secure credential management.
 Test the KAZ environment with varying levels of agent cooperation:
 
 ```bash
+# From the project root:
+python3 -m code.src.experiments.run_baselines code/src/configuration/kaz_baselines_config.yaml
+
+# Or navigate to code/src first:
 cd code/src
 python3 experiments/run_baselines.py configuration/kaz_baselines_config.yaml
-# Or use the convenience script:
-./run_kaz_baseline_tests.sh
+
+# Or use the convenience script from code/src:
+cd code/src
+./scripts/run_baseline_tests.sh
 ```
 
 #### Main IRL Experiments
@@ -109,10 +113,16 @@ python3 experiments/run_baselines.py configuration/kaz_baselines_config.yaml
 Evaluate IRL-based assistive agents:
 
 ```bash
+# From the project root:
+python3 -m code.src.experiments.run_main code/src/configuration/main_experiment_config.yaml
+
+# Or navigate to code/src first:
 cd code/src
-python3 run_main_experiment.py configuration/main_experiment_config.yaml
-# Or use the convenience script:
-./run_main_experiment_tests.sh
+python3 experiments/run_main.py configuration/main_experiment_config.yaml
+
+# Or use the convenience script from code/src:
+cd code/src
+./scripts/run_main_tests.sh
 ```
 
 ### Configuration
@@ -126,33 +136,53 @@ Experiment hyperparameters can be modified in YAML configuration files:
 
 ```
 ├── code/
-│   ├── requirements.txt          # Python dependencies
 │   └── src/
-│       ├── main_experiment_core.py      # Core experiment logic
-│       ├── run_main_experiment.py       # IRL experiment runner
-│       ├── run_kaz_baselines.py         # Baseline experiment runner
+│       ├── agents/                      # Agent abstractions
+│       │   ├── agent_base.py           # Base agent class
+│       │   ├── owner.py                # Human/Owner agent
+│       │   ├── assistant.py            # IRL-based assistant
+│       │   └── helpers/                # Environment/Policy config objects
 │       ├── baselines/                   # Baseline algorithms
 │       │   └── kaz/                     # KAZ-specific baselines
-│       ├── configuration/               # Experiment configs
-│       ├── envs/                        # Game environments
-│       │   ├── kaz_core/               # Core KAZ implementations
-│       │   └── kaz_variants/           # Modified KAZ variants
+│       ├── common/                      # Shared utilities
+│       │   ├── common.py               # Common functions
+│       │   └── constants.py            # Project constants
+│       ├── configuration/               # Experiment configs (YAML)
+│       │   ├── main_experiment_config.yaml
+│       │   └── kaz_baselines_config.yaml
+│       ├── environments/                # Game environments
+│       │   └── kaz/                    # Knights, Archers, Zombies
+│       │       ├── core/               # Core KAZ implementations
+│       │       └── variants/           # Modified KAZ variants
+│       ├── experiments/                 # Experiment runners
+│       │   ├── experiment_core.py      # Core experiment logic
+│       │   ├── run_main.py             # IRL experiment runner
+│       │   └── run_baselines.py        # Baseline experiment runner
 │       ├── irl_training/                # IRL algorithm implementations
+│       │   ├── irl_base.py             # Base IRL template
 │       │   ├── airl.py                 # Adversarial IRL
 │       │   ├── gail.py                 # Generative Adversarial Imitation
-│       │   ├── bcloning.py             # Behavioral Cloning
-│       │   ├── DAgger.py               # Dataset Aggregation
-│       │   └── ...
-│       ├── MyAgents/                    # Agent abstractions
-│       │   ├── Owner.py                # Human/Owner agent
-│       │   ├── Assistant.py            # IRL-based assistant
-│       │   └── Objects/                # Environment/Policy objects
-│       ├── Wrappers/                    # OpenAI Gym wrappers
-│       └── common/                      # Shared utilities
-├── tests/                               # Test suites and examples
-│   ├── manual_gameplay/                # Manual gameplay testing
-│   └── environment_tests/              # Environment unit tests
+│       │   ├── behavioral_cloning.py   # Behavioral Cloning
+│       │   ├── dagger.py               # Dataset Aggregation
+│       │   ├── preference_comparisons.py
+│       │   └── density_reward.py       # Density-based reward modeling
+│       ├── scripts/                     # Convenience shell scripts
+│       │   ├── run_baseline_tests.sh
+│       │   └── run_main_tests.sh
+│       ├── wrappers/                    # OpenAI Gym wrappers
+│       │   └── kaz_training_wrapper.py
+│       └── output/                      # Experiment results
+├── code/tests/                          # Test suites and examples
+│   ├── test_full_framework_functionality.py
+│   ├── test_classic_gym_game_set_up.py
+│   ├── environment_tests/              # Environment unit tests
+│   └── manual_gameplay/                # Manual gameplay testing
 ├── docker/                              # Docker configuration
+│   ├── Dockerfile
+│   └── start_container_commands/
+├── licenses/                            # Third-party licenses
+├── requirements.txt                     # Python dependencies
+├── setup.py                             # Package installation
 └── README.md                            # This file
 ```
 
@@ -321,10 +351,10 @@ _For detailed statistical analysis and experimental methodology, please refer to
 ## 📚 Documentation
 
 - **[Code Documentation](code/src/README.md)** - Detailed module descriptions
-- **[Environment Guide](code/src/envs/README.md)** - KAZ environment variants
+- **[Environment Guide](code/src/environments/README.md)** - KAZ environment variants
 - **[IRL Algorithms](code/src/irl_training/README.md)** - IRL implementation details
-- **[Agent Architecture](code/src/MyAgents/README.md)** - Owner and Assistant agents
-- **[Testing Guide](tests/README.md)** - How to test and validate changes
+- **[Agent Architecture](code/src/agents/README.md)** - Owner and Assistant agents
+- **[Testing Guide](code/tests/README.md)** - How to test and validate changes
 
 ## 🐳 Docker Support
 
@@ -365,8 +395,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **Joshua Wheeler**  
 Master's Dissertation Project  
-University of St Andrews  
-[GitHub](https://github.com/JoshWheeler08)
+University of St Andrews
 
 ---
 

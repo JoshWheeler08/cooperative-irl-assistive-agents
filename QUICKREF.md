@@ -370,7 +370,7 @@ export WANDB_MODE=disabled
 ## 🆘 Getting Help
 
 - **Docs**: Read `README.md`, `SETUP.md`, `CONTRIBUTING.md`
-- **Issues**: Search [GitHub Issues](https://github.com/JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms/issues)
+- **Issues**: Search [GitHub Issues](https://github.com/JoshWheeler08/cooperative-irl-assistive-agents/issues)
 - **New Issue**: Open with detailed description
 - **Community**: GitHub Discussions
 

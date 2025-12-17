@@ -50,8 +50,8 @@ See [SETUP.md](SETUP.md) for detailed system requirements and installation instr
 1. **Fork and Clone**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Investigating-IRL-based-intention-recognition-algorithms.git
-cd Investigating-IRL-based-intention-recognition-algorithms
+git clone https://github.com/YOUR_USERNAME/cooperative-irl-assistive-agents.git
+cd cooperative-irl-assistive-agents
 ```
 
 2. **Install Dependencies**

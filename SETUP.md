@@ -42,8 +42,8 @@ For experienced users who just want to get started:
 
 ```bash
 # Clone repository
-git clone https://github.com/JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms.git
-cd Investigating-IRL-based-intention-recognition-algorithms
+git clone https://github.com/JoshWheeler08/cooperative-irl-assistive-agents.git
+cd cooperative-irl-assistive-agents
 
 # Create virtual environment
 python3 -m venv env
@@ -94,13 +94,13 @@ python3 --version  # Should show Python 3.8.x or higher
 
 ```bash
 # Using HTTPS
-git clone https://github.com/JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms.git
+git clone https://github.com/JoshWheeler08/cooperative-irl-assistive-agents.git
 
 # Or using SSH
-git clone git@github.com:JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms.git
+git clone git@github.com:JoshWheeler08/cooperative-irl-assistive-agents.git
 
 # Navigate to directory
-cd Investigating-IRL-based-intention-recognition-algorithms
+cd cooperative-irl-assistive-agents
 ```
 
 ### Step 3: Create Virtual Environment
