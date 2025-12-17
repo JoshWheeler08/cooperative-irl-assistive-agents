@@ -7,9 +7,7 @@
 import os
 import sys
 
-# Add src directory to path so imports work
-if __name__ == "__main__":
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
+
 
 from stable_baselines3 import PPO
 from gym.envs.registration import register

@@ -9,10 +9,6 @@ import os
 import sys
 import gym
 
-# Add src directory to path so imports work
-if __name__ == "__main__":
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
-
 from gym.envs.registration import register
 from wrappers.kaz_training_wrapper import KAZTrainingWrapper
 from agents.helpers.env_config import EnvObject
