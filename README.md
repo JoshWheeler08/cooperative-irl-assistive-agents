@@ -22,32 +22,30 @@ This research project investigates whether **Inverse Reinforcement Learning (IRL
 **Test Environment**: Knights, Archers, Zombies (KAZ) - a two-player cooperative game  
 **Core Question**: Can IRL-based intention recognition improve anticipatory assistance compared to traditional approaches?
 
+### Knights, Archers, Zombies (KAZ) Environment
+
+<p align="center">
+  <img src="images/knights-archers-zombies.png" alt="Knights, Archers, Zombies Game Environment" width="600"/>
+</p>
+
 ## 🏗️ Architecture
 
 The system consists of three main components:
 
-```
-┌─────────────────────────────────────────────────────────┐
-│              IRL-BASED ASSISTANT AGENT                  │
-├─────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐  ┌──────────────────┐            │
-│  │  IRL Intention  │  │   Deep RL        │            │
-│  │  Recognition    │  │   Environment    │            │
-│  │  Module         │  │   Learning       │            │
-│  └────────┬────────┘  └────────┬─────────┘            │
-│           │                     │                       │
-│           └──────────┬──────────┘                       │
-│                      ▼                                  │
-│            ┌─────────────────────┐                     │
-│            │   Deep RL Action    │                     │
-│            │   Prediction Module │                     │
-│            │   (MLP Combiner)    │                     │
-│            └─────────────────────┘                     │
-└─────────────────────────────────────────────────────────┘
-```
+<p align="center">
+  <img src="images/architecture.png" alt="IRL-based Assistant Agent Architecture" width="700"/>
+</p>
 
 **Owner/Human Agent** ← Trained via Deep RL  
 **Assistant Agent** ← Trained via IRL + Deep RL + Action Combiner
+
+### Training Process
+
+Sequence diagram for visualizing the training process of an IRL-based assistant agent:
+
+<p align="center">
+  <img src="images/sequence-irl-based-training.png" alt="Training Process Sequence Diagram" width="800"/>
+</p>
 
 ## 🚀 Quick Start
 
@@ -303,6 +301,12 @@ The research revealed important insights about IRL-based intention recognition:
 - **Simplicity wins**: Density-based methods proved competitive with more complex adversarial approaches
 - **Environment design**: The archer naturally learns to protect the knight to maximize its own reward
 - **Cooperation levels**: Varying cooperation in baselines successfully established performance bounds
+
+### Example Results Visualization
+
+<p align="center">
+  <img src="images/example-result-visualisation.png" alt="Example Results Visualization" width="700"/>
+</p>
 
 _For detailed statistical analysis and experimental methodology, please refer to the full dissertation document._
 
