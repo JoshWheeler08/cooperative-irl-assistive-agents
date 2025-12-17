@@ -21,14 +21,20 @@
         * Playing a game with the Assistant's Final policy, where the `knight` is also acting in the game
 """
 
+import os
+import sys
+
+# Add src directory to path so imports work
+if __name__ == "__main__":
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from gym.envs.registration import register
 
 # My implementations
-from Wrappers.KAZTrainingWrapper import KAZTrainingWrapper
-from MyAgents.Objects.EnvObject import EnvObject
-from MyAgents.Assistant import Assistant
-from MyAgents.Owner import Owner
+from wrappers.kaz_training_wrapper import KAZTrainingWrapper
+from agents.helpers.env_config import EnvObject
+from agents.assistant import Assistant
+from agents.owner import Owner
 
 
 def main(

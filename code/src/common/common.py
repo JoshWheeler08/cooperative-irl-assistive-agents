@@ -197,14 +197,14 @@ def read_in_configuration_file(yaml_file_path):
 def select_skill_level(skill_level):
     """ Function for selecting the skill level to be used by the game environment """
     
-    path_to_constants_file = f"./envs/kaz_core/src/constants.py"
+    path_to_constants_file = f"./environments/kaz/core/src/constants.py"
 
     # Remove existing constants file
     if os.path.exists(path_to_constants_file):
         os.remove(path_to_constants_file)
     
     # Copy and rename new constants file
-    path_to_skill_level_details = f"./envs/kaz_core/src/skill_levels/{skill_level}.py"
+    path_to_skill_level_details = f"./environments/kaz/core/src/skill_levels/{skill_level}.py"
     shutil.copy(path_to_skill_level_details, path_to_constants_file)
 
 

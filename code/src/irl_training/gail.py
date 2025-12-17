@@ -14,7 +14,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 
 import numpy as np
 
-from irl_training.irl_template import IRLImplementation
+from irl_training.irl_base import IRLImplementation
 
 class MyGAIL(IRLImplementation):
 

@@ -9,7 +9,7 @@ from imitation.algorithms import bc
 from imitation.algorithms.dagger import SimpleDAggerTrainer
 from stable_baselines3.common.evaluation import evaluate_policy
 
-from irl_training.irl_template import IRLImplementation
+from irl_training.irl_base import IRLImplementation
 
 class MyDAgger(IRLImplementation):
     

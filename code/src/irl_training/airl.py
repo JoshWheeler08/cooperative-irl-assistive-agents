@@ -16,7 +16,7 @@ from imitation.util.networks import RunningNorm
 from imitation.util.util import make_vec_env
 from stable_baselines3.common.evaluation import evaluate_policy
 
-from irl_training.irl_template import IRLImplementation
+from irl_training.irl_base import IRLImplementation
 
 
 class MyAIRL(IRLImplementation):

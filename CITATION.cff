@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as below."
+authors:
+  - family-names: "Wheeler"
+    given-names: "Joshua"
+title: "Investigating Human Intention Recognition Algorithms based on Inverse Reinforcement Learning for Assistive Action Planning"
+version: 1.0.0
+date-released: 2025-12-17
+url: "https://github.com/JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms"
+repository-code: "https://github.com/JoshWheeler08/Investigating-IRL-based-intention-recognition-algorithms"
+keywords:
+  - "inverse reinforcement learning"
+  - "intention recognition"
+  - "assistive robotics"
+  - "human-robot interaction"
+  - "cooperative AI"
+  - "multi-agent reinforcement learning"
+  - "imitation learning"
+license: MIT
+preferred-citation:
+  type: thesis
+  authors:
+    - family-names: "Wheeler"
+      given-names: "Joshua"
+  title: "Investigating Human Intention Recognition Algorithms based on Inverse Reinforcement Learning for Assistive Action Planning"
+  year: 2023
+  thesis-type: "Master's Thesis"
+  institution:
+    name: "University of St Andrews"
+    city: "St Andrews"
+    country: "UK"
+  abstract: "This dissertation investigates whether Inverse Reinforcement Learning (IRL) based intention recognition algorithms can improve human-robot cooperation in assistive systems. Inspired by the altruistic behavior observed in 18-month-old children who can infer and assist with human intentions, this work explores embedding similar capabilities into AI assistants. Using the Knights, Archers, Zombies (KAZ) cooperative game environment as a testbed, the research evaluates multiple IRL algorithms (AIRL, GAIL, Behavioral Cloning, DAgger, etc.) in their ability to enable an assistant agent to anticipate and support a human agent's actions. The work contributes a flexible, plug-and-play testing framework for cooperative IRL research and provides evidence regarding the effectiveness of IRL-based intention recognition for anticipatory assistance."

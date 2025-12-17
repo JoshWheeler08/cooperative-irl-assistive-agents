@@ -1,4 +1,0 @@
-imitation
-pygame
-gymnasium
-wandb

@@ -1,16 +1,15 @@
 BASELINE_EXPERIMENT:
-  
   PROJECT_ROOT: ./baselines/kaz/official
   CSV_ROOT: monitor_dir/
   MODEL_ROOT: baseline_models/
-  
+
   NUMBER_OF_TEST_RUNS: 3
   GLOBAL_TOTAL_TIMESTEPS: 100000
-  GLOBAL_N_ENVS : 4
-  GLOBAL_N_EVAL_EPISODES : 150
-  GLOBAL_MAX_EPISODE_STEPS : None
+  GLOBAL_N_ENVS: 4
+  GLOBAL_N_EVAL_EPISODES: 150
+  GLOBAL_MAX_EPISODE_STEPS: None
   GLOBAL_POLICY_TYPE: PPO
-  
+
   # Difficulty Level
   GLOBAL_MAX_ZOMBIES: 10
 
@@ -18,32 +17,32 @@ BASELINE_EXPERIMENT:
     SEED_LOWER_BOUND: 0
     SEED_INCLUSIVE_UPPER_BOUND: 1000
 
-  SKILL_LEVEL: medium  # SKILL_LEVEL_OPTIONS = vanilla, medium, hard
+  SKILL_LEVEL: medium # SKILL_LEVEL_OPTIONS = vanilla, medium, hard
 
   HORIZON:
     OPTION: variable #'variable' or 'fixed'
     NUM_STEPS: 500 # only used when the horizon is 'fixed'
     HORIZON_PATHS:
       FIXED_HORIZON_PATHS:
-          SingleKAZ-v0: envs.kaz_core.fixed_horizon_single_player:FixedHorizonSingleKAZ
-          DoubleKAZ-v0: envs.kaz_core.fixed_horizon_double_player:FixedHorizonDoubleKAZ
-          RandomKAZ-v0: envs.kaz_variants.fixed_horizon.fixed_horizon_random_double_player:FixedHorizonRandomKAZ
-          FullObsDoubleKAZ-v0: envs.kaz_variants.fixed_horizon.fixed_horizon_full_obs_double_player:FixedHorizonFullObsDoubleKAZ
-          SingleRLPolicyDoubleKAZ-v0: envs.kaz_variants.fixed_horizon.fixed_horizon_single_policy_double_player:FixedHorizonSingleRLPolicyDoubleKAZ
-          EvalDoubleKAZ-v0: envs.kaz_variants.eval.fixed_horizon_double_player_eval:EvalFixedHorizonDoubleKAZ
-          EvalFullObsDoubleKAZ-v0: envs.kaz_variants.eval.fixed_horizon_full_obs_double_player_eval:EvalFixedHorizonFullObsDoubleKAZ
+        SingleKAZ-v0: environments.kaz.core.fixed_horizon_single_player:FixedHorizonSingleKAZ
+        DoubleKAZ-v0: environments.kaz.core.fixed_horizon_double_player:FixedHorizonDoubleKAZ
+        RandomKAZ-v0: environments.kaz.variants.fixed_horizon.fixed_horizon_random_double_player:FixedHorizonRandomKAZ
+        FullObsDoubleKAZ-v0: environments.kaz.variants.fixed_horizon.fixed_horizon_full_obs_double_player:FixedHorizonFullObsDoubleKAZ
+        SingleRLPolicyDoubleKAZ-v0: environments.kaz.variants.fixed_horizon.fixed_horizon_single_policy_double_player:FixedHorizonSingleRLPolicyDoubleKAZ
+        EvalDoubleKAZ-v0: environments.kaz.variants.eval.fixed_horizon_double_player_eval:EvalFixedHorizonDoubleKAZ
+        EvalFullObsDoubleKAZ-v0: environments.kaz.variants.eval.fixed_horizon_full_obs_double_player_eval:EvalFixedHorizonFullObsDoubleKAZ
 
       VARIABLE_HORIZON_PATHS:
-          SingleKAZ-v0: envs.kaz_core.single_player:SingleKAZ
-          DoubleKAZ-v0: envs.kaz_core.double_player:DoubleKAZ
-          RandomKAZ-v0: envs.kaz_variants.variable_horizon.random_double_player:RandomKAZ
-          FullObsDoubleKAZ-v0: envs.kaz_variants.variable_horizon.full_obs_double_player:FullObsDoubleKAZ
-          SingleRLPolicyDoubleKAZ-v0: envs.kaz_variants.variable_horizon.single_policy_double_player:SingleRLPolicyDoubleKAZ
-          EvalDoubleKAZ-v0: envs.kaz_variants.eval.double_player_eval:EvalDoubleKAZ
-          EvalFullObsDoubleKAZ-v0: envs.kaz_variants.eval.full_obs_double_player_eval:EvalFullObsDoubleKAZ
+        SingleKAZ-v0: environments.kaz.core.single_player:SingleKAZ
+        DoubleKAZ-v0: environments.kaz.core.double_player:DoubleKAZ
+        RandomKAZ-v0: environments.kaz.variants.variable_horizon.random_double_player:RandomKAZ
+        FullObsDoubleKAZ-v0: environments.kaz.variants.variable_horizon.full_obs_double_player:FullObsDoubleKAZ
+        SingleRLPolicyDoubleKAZ-v0: environments.kaz.variants.variable_horizon.single_policy_double_player:SingleRLPolicyDoubleKAZ
+        EvalDoubleKAZ-v0: environments.kaz.variants.eval.double_player_eval:EvalDoubleKAZ
+        EvalFullObsDoubleKAZ-v0: environments.kaz.variants.eval.full_obs_double_player_eval:EvalFullObsDoubleKAZ
 
 WANDB:
   SILENT: true
-  API_KEY: 936c76ff9ac75acf44ecf895e74451021d1c7ae6
+  API_KEY: "" # Set via environment variable WANDB_API_KEY or pass as argument
   USE_WANDB: False
   PROJECT_NAME: kaz_baselines_test_cpu

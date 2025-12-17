@@ -1,1 +1,0 @@
-docker run -v $HOME/cs5199-dissertation/myproject/src/:$HOME/cs5199-dissertation/myproject/src/ -w $HOME/cs5199-dissertation/myproject/src/ --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --runtime=nvidia --user $(id -u):$(id -g) --rm cs5199-image python run_main_experiment.py configuration/main_experiment_config.yaml

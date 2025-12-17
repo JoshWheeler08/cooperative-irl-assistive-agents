@@ -1,5 +1,4 @@
 EXPERIMENT:
-
   FULL_TEST: True
 
   PROJECT_ROOT: ./main_experiment_output/official
@@ -7,9 +6,9 @@ EXPERIMENT:
   MODEL_ROOT: learned_models/
   NUMBER_OF_TEST_RUNS: 3
   GLOBAL_TOTAL_TIMESTEPS: 100000
-  GLOBAL_N_ENVS : 4
-  GLOBAL_N_EVAL_EPISODES : 150
-  GLOBAL_MAX_EPISODE_STEPS : None
+  GLOBAL_N_ENVS: 4
+  GLOBAL_N_EVAL_EPISODES: 150
+  GLOBAL_MAX_EPISODE_STEPS: None
 
   # Difficulty Level
   GLOBAL_MAX_ZOMBIES: 10
@@ -21,22 +20,22 @@ EXPERIMENT:
     NUM_STEPS: 750 # only matters if using 'fixed' horizon
     HORIZON_PATHS:
       FIXED_HORIZON_PATHS:
-          SingleKAZ-v0: envs.kaz_core.fixed_horizon_single_player:FixedHorizonSingleKAZ
-          DoubleKAZ-v0: envs.kaz_core.fixed_horizon_double_player:FixedHorizonDoubleKAZ
-          RandomKAZ-v0: envs.kaz_variants.fixed_horizon.fixed_horizon_random_double_player:FixedHorizonRandomKAZ
-          FullObsDoubleKAZ-v0: envs.kaz_variants.fixed_horizon.fixed_horizon_full_obs_double_player:FixedHorizonFullObsDoubleKAZ
-          SingleRLPolicyDoubleKAZ-v0: envs.kaz_variants.fixed_horizon.fixed_horizon_single_policy_double_player:FixedHorizonSingleRLPolicyDoubleKAZ
-          EvalDoubleKAZ-v0: envs.kaz_variants.eval.fixed_horizon_double_player_eval:EvalFixedHorizonDoubleKAZ
-          EvalFullObsDoubleKAZ-v0: envs.kaz_variants.eval.fixed_horizon_full_obs_double_player_eval:EvalFixedHorizonFullObsDoubleKAZ
+        SingleKAZ-v0: environments.kaz.core.fixed_horizon_single_player:FixedHorizonSingleKAZ
+        DoubleKAZ-v0: environments.kaz.core.fixed_horizon_double_player:FixedHorizonDoubleKAZ
+        RandomKAZ-v0: environments.kaz.variants.fixed_horizon.fixed_horizon_random_double_player:FixedHorizonRandomKAZ
+        FullObsDoubleKAZ-v0: environments.kaz.variants.fixed_horizon.fixed_horizon_full_obs_double_player:FixedHorizonFullObsDoubleKAZ
+        SingleRLPolicyDoubleKAZ-v0: environments.kaz.variants.fixed_horizon.fixed_horizon_single_policy_double_player:FixedHorizonSingleRLPolicyDoubleKAZ
+        EvalDoubleKAZ-v0: environments.kaz.variants.eval.fixed_horizon_double_player_eval:EvalFixedHorizonDoubleKAZ
+        EvalFullObsDoubleKAZ-v0: environments.kaz.variants.eval.fixed_horizon_full_obs_double_player_eval:EvalFixedHorizonFullObsDoubleKAZ
 
       VARIABLE_HORIZON_PATHS:
-          SingleKAZ-v0: envs.kaz_core.single_player:SingleKAZ
-          DoubleKAZ-v0: envs.kaz_core.double_player:DoubleKAZ
-          RandomKAZ-v0: envs.kaz_variants.variable_horizon.random_double_player:RandomKAZ
-          FullObsDoubleKAZ-v0: envs.kaz_variants.variable_horizon.full_obs_double_player:FullObsDoubleKAZ
-          SingleRLPolicyDoubleKAZ-v0: envs.kaz_variants.variable_horizon.single_policy_double_player:SingleRLPolicyDoubleKAZ
-          EvalDoubleKAZ-v0: envs.kaz_variants.eval.double_player_eval:EvalDoubleKAZ
-          EvalFullObsDoubleKAZ-v0: envs.kaz_variants.eval.full_obs_double_player_eval:EvalFullObsDoubleKAZ
+        SingleKAZ-v0: environments.kaz.core.single_player:SingleKAZ
+        DoubleKAZ-v0: environments.kaz.core.double_player:DoubleKAZ
+        RandomKAZ-v0: environments.kaz.variants.variable_horizon.random_double_player:RandomKAZ
+        FullObsDoubleKAZ-v0: environments.kaz.variants.variable_horizon.full_obs_double_player:FullObsDoubleKAZ
+        SingleRLPolicyDoubleKAZ-v0: environments.kaz.variants.variable_horizon.single_policy_double_player:SingleRLPolicyDoubleKAZ
+        EvalDoubleKAZ-v0: environments.kaz.variants.eval.double_player_eval:EvalDoubleKAZ
+        EvalFullObsDoubleKAZ-v0: environments.kaz.variants.eval.full_obs_double_player_eval:EvalFullObsDoubleKAZ
 
   SEED:
     SEED_LOWER_BOUND: 0
@@ -49,25 +48,24 @@ EXPERIMENT:
 
   TEST_EXPERIMENT_LIST:
     - PPO_DAgger_1e6
-    
+
   IRL_ARGS:
-    
     AIRL:
-      min_episodes : 150
+      min_episodes: 150
       total_timesteps: 300000
-      PPO_n_epochs : 10
-    
+      PPO_n_epochs: 10
+
     BC:
       min_episodes: 500
       n_epochs: 1000
-    
+
     DAGGER:
       total_timesteps: 2000
       prefix: dagger_experiment_run_
 
     DENSITY:
       eval_num_trajectories: 10
-      fast : False
+      fast: False
       fast_n_vec: 4
       fast_n_trajectories: 100
       fast_n_iterations: 1000
@@ -76,9 +74,9 @@ EXPERIMENT:
       min_timesteps: 100
 
     GAIL:
-      min_episodes : 150
+      min_episodes: 150
       total_timesteps: 300000
-      PPO_n_epochs : 10
+      PPO_n_epochs: 10
 
     PREFCOMP:
       reward_trainer_epochs: 3
@@ -89,16 +87,15 @@ EXPERIMENT:
       PPO_learn_total_timesteps: 100000
 
   TEST_IRL_ARGS: # IRL algorithms will use default hyperparameter values specified in implementation
-    AIRL:    
+    AIRL:
     BC:
     DAGGER:
     DENSITY:
     GAIL:
     PREFCOMP:
-    
 
 WANDB:
   SILENT: true
-  API_KEY: 936c76ff9ac75acf44ecf895e74451021d1c7ae6
+  API_KEY: "" # Set via environment variable WANDB_API_KEY or pass as argument
   USE_WANDB: False
   PROJECT_NAME: kaz_main_experiment_test_cpu

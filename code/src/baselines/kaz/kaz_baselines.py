@@ -8,7 +8,7 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.logger import configure
 
 from common.common import *
-from MyAgents.Owner import Owner
+from agents.owner import Owner
 from common.constants import IGNORE_HORIZON
 
 

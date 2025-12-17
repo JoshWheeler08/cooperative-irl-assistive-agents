@@ -1,11 +1,17 @@
 """ 
-    Small program used to verify that my KAZ game environments (`./src/envs/`) can be rendered and played 
+    Small program used to verify that my KAZ game environments (`./src/environments/`) can be rendered and played 
     before including any trained agents. As a result, the knight's and archer's actions per timestep 
     are randomly selected by sampling from their respective actions spaces.
 
 """
 
+import os
+import sys
 import gym
+
+# Add src directory to path so imports work
+if __name__ == "__main__":
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from gym.envs.registration import register
 from common.common import select_skill_level
@@ -17,13 +23,13 @@ max_episode_steps = None  # No limit on episode length
 
 register(
     id="SingleKAZ-v0",
-    entry_point="envs.kaz_core.fixed_horizon_single_player:FixedHorizonSingleKAZ",
+    entry_point="environments.kaz.core.fixed_horizon_single_player:FixedHorizonSingleKAZ",
     max_episode_steps=max_episode_steps,
 )
 
 register(
     id="DoubleKAZ-v0",
-    entry_point="envs.kaz_core.fixed_horizon_double_player:FixedHorizonDoubleKAZ",
+    entry_point="environments.kaz.core.fixed_horizon_double_player:FixedHorizonDoubleKAZ",
     max_episode_steps=max_episode_steps,
 )
 

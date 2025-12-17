@@ -12,6 +12,12 @@
 **/PettingZoo-1.16.0/
 **/imitation/
 
+# Security - Never commit credentials
+**/.env
+**/.env.local
+**/secrets.yaml
+**/*_secrets.yaml
+
 # Project-specific
 **/.#*
 **/*.html
